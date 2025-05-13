@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+   
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("{{ url_for('static', filename='images/home.png') }}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- HOMEPAGE-->
+<div class="homepage home-container">
+    <h1>{{title}}</h1>
+    <p>System to manage students and income @ painting studio</p>
+        <div class="options">
+            <!-- Button Accounting -->
+            <div class="income">
+                <a href="./income"><button class="btn-home">Income</button></a>
+            </div>
+            <!-- Button Students -->
+            <div class="students">
+                <a href="./students"><button class="btn-home">Students</button></a>
+            </div>
+        </div>
+</div>
+<!-- END HOMEPAGE-->
+
+</body>
+</html>
