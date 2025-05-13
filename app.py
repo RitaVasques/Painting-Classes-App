@@ -89,8 +89,8 @@ def income():
     
     if chart_data:  # Only plot if data exists
         df = pd.DataFrame(chart_data)
-        fig = (px.bar(df, x='date', y='amount', 
-                     labels={'amount': 'Income ($)', 'date': 'Date'},
+        fig = (px.bar(df, x='date', y='total_amount', 
+                     labels={'total_amount': 'Income (€)', 'date': 'Date'},
                      color_discrete_sequence=['#ef7538'])
             .update_layout(title_text='Income Over Time',
                           title_x=0.5,
@@ -111,10 +111,6 @@ def income():
                 tickfont=dict(color='black')
             ),
         )
-        # Remove ALL hover interactions
-        fig.update_traces(
-            hoverinfo='none',
-            hovertemplate=None)
         # Convert to HTML
         graph_html = fig.to_html(full_html=False, 
                                  config={'displayModeBar': False})  # Removes the menu bar
