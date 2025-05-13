@@ -4,7 +4,7 @@ from income import Income
 class ManageIncome:
     INSERT = 'INSERT INTO accounting(student_id, date, amount) VALUES(%s, %s, %s)'
     SELECTALL = 'SELECT * FROM accounting ORDER BY student_id'
-    GRAPH = 'SELECT date, amount FROM accounting ORDER BY date'
+    GRAPH = 'SELECT date, SUM(amount) AS total_amount FROM accounting GROUP BY date ORDER BY date'
 
     @classmethod
     def insert(cls, income):
@@ -61,7 +61,7 @@ class ManageIncome:
             cursor = connection.cursor(dictionary=True)
             cursor.execute(cls.GRAPH)
             chart_data =cursor.fetchall()
-            return chart_data # returns a list of dictionaries
+            return chart_data # returns a list of dictionaries [{'date':..., 'total_amount':...}, ...]
         except Exception as e:
             print(f'Error getting chart data: {e}')
             return []
