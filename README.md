@@ -22,6 +22,7 @@
 # 2. python -m venv venv (or 'python3' if 'python' doesn't work)
 # 3. source venv/bin/activate
 # 4. pip install -r requirements.txt
+# 5. python app.py  (or `python3 app.py` if 'python doesn't work)
 
 # When done, leave the virtual environment:
 # deactivate
